@@ -1,0 +1,11 @@
+¿Cuál es el valor de la variable en el proceso hijo?
+R/ el mismo que el del padre, porque el fork
+crea una copia del codigo con los mismos elementos 
+y estado del padre. 
+
+¿Qué sucede con la variable cuando el proceso hijo y 
+el padre cambian el valor de x?
+R/ Como cada proceso tiene una copia de la variable y
+son procesos independientes, cada uno cambiara la variable 
+sin alterarse entre si.
+

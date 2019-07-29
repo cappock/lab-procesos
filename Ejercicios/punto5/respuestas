@@ -1,0 +1,5 @@
+¿Cuál es el valor de retorno de la función wait()?, 
+R/ -1 
+
+¿Qué pasa si usted usa la función wait en el hijo?
+R/ retorna -1, pero el hijo no espera al padre. 

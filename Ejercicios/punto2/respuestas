@@ -1,0 +1,7 @@
+¿Pueden el padre y el hijo acceder al file descriptor retornado por open()?
+R/Si. debido a que variable que tienen para direccionar el archivo es la misma para los dos por lo tanto, al escribir
+estan escribiendo en el mismo archivo. NOTA: si uno de los dos cierra el archivo antes de que el otro lo modifique 
+no se hara efectiva.
+
+¿Qué pasa si ellos empiezan a escribir el archivo de manera concurrente, es decir, a la misma vez?
+R/ Aparece primero la modificacion del que escriba primero, mediante wait podemos hacer que el padre espere a que el hijo escriba.

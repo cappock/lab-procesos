@@ -1,0 +1,2 @@
+¿usted podría hacer esto sin llamar wait() en el padre?
+R/ Si, con la funcion sleep le damos tiempo al hijo antes de que el padre imprima. 
