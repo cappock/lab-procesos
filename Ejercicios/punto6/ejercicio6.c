@@ -10,19 +10,18 @@ gcc -Wall example2.c -o example2.out
 */
 int main(void)
 {
-
     int id = fork();
+    
     if (id == 0)
     {
         // Codigo hijo
-        int w = waitpid();
-        printf("%d",w);
+        
         printf("Yo soy el hijo Hola\n");      
     }
     else
     {
-        // Codigo padre
-        
+        // Codigo padre 
+        int w = waitpid(NULL);       
         printf("Yo soy el padre Hola\n");
         sleep(2);
 

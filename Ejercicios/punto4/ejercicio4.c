@@ -1,24 +1,42 @@
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <fcntl.h>
 #include <stdio.h>
 #include <unistd.h>
-#include <sys/types.h>
-#include <sys/wait.h>
+#include <unistd.h>
+#include <string.h>
 
+int main()
+{
 
-int main (void){
-  int *status_code;
-  printf("Padre -> \n");
-  int id = fork();
-  switch(id) {
-    case 0:
-      // Codigo del proceso hijo
-      printf("Soy Hijo");
-      execl("/bin/ls", "/bin/ls", "-l", ".", NULL);
-    case -1: 
-      // Error
-      printf("ERROR!!!");
-      break;
-  }
-  wait(status_code); // Ensayarlo sin comentarlo y comentandolo a ver que pasa
-  printf("Esto no lo ejecutara el hijo\n");
-  return 0;
+    if (fork( ) == 0)
+    {
+        execle( "/bin/ls", "ls", "-l", "/usr/include", 0 );
+
+        if (fork() == 0)
+        {
+            execl( "/bin/ls", "ls", "-l", "/usr/include", 0 );
+
+            if (fork() == 0)
+            {
+                execvp( "/bin/ls", 0 );
+            }
+            else
+            {
+
+                execvpe( "/bin/ls", "ls", "-l", "/usr/include", 0 );
+            }
+        }
+        else
+        {
+
+            execv( "/bin/ls", 0 );
+        }
+    }
+    else
+    {
+        execlp( "/bin/ls", "ls", "-l", "/usr/include", 0 );
+    }
+
+    return 0;
 }

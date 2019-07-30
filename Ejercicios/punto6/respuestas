@@ -1,0 +1,3 @@
+¿Cuándo podría ser waitpid() útil?
+R/ Cuando se tiene un proceso con una variedad de hijos y es necesario esperar a unos
+en especifico. 
